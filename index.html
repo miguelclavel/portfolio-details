@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Three portfolio details · Miguel Clavel</title>
+<meta name="description" content="Three small details that make a portfolio easier to read: a viewed badge, the short version at the top of a case study, and a selection colour that belongs to the brand. One file. By Miguel Clavel.">
+<style>
+  :root { --page: #F9F9FB; --panel: #FFFFFF; --ink: #1D1D21; --muted: #67676C; --rule: #DADADD; --soft: #F1F1F4; --link: #1F5FD1; --focus: #155EEF; }
+  @media (prefers-color-scheme: dark) { :root { --page: #0F0F11; --panel: #17171A; --ink: #F5F5F7; --muted: #A3A3A8; --rule: #2E2E33; --soft: #1F1F23; --link: #7AAEFF; --focus: #9CC3FF; } }
+  /* Detail 3: one fixed selection pair for both themes, so a theme can never make it unreadable.
+     #101012 on #FFD84D is about 13.7:1, far past the 4.5:1 normal text needs. */
+  ::selection { background: #FFD84D; color: #101012; }
+  ::-moz-selection { background: #FFD84D; color: #101012; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--page); color: var(--ink); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  a { color: var(--link); } :focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+  .wrap { width: min(820px, 100% - 32px); margin: 0 auto; padding: 56px 0 72px; }
+  .by { font-size: 14px; color: var(--muted); margin: 0 0 8px; } .by a { color: inherit; }
+  h1 { margin: 0; font-size: clamp(34px, 6vw, 52px); letter-spacing: -0.035em; line-height: 1.05; }
+  .lede { color: var(--muted); font-size: 18px; max-width: 640px; }
+  section { margin-top: 52px; }
+  .num { font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin: 0; }
+  h2 { margin: 4px 0 12px; font-size: 24px; letter-spacing: -0.02em; }
+  .demo { border: 1px solid var(--rule); border-radius: 16px; background: var(--panel); padding: 18px 20px; }
+  .projects { list-style: none; margin: 0; padding: 0; }
+  .projects li { display: flex; align-items: center; gap: 10px; padding: 12px 0; border-top: 1px solid var(--rule); }
+  .projects li:first-child { border-top: 0; }
+  .projects a { font-weight: 600; text-decoration: none; color: var(--ink); }
+  .badge { font-size: 12px; font-weight: 600; color: var(--muted); background: var(--soft); border-radius: 999px; padding: 2px 9px; }
+  .badge[hidden] { display: none; }
+  .small { font-size: 13px; color: var(--muted); margin: 10px 0 0; } .small button { font: inherit; color: var(--link); background: none; border: 0; padding: 0; cursor: pointer; text-decoration: underline; }
+  .short { display: grid; gap: 14px; grid-template-columns: repeat(3, 1fr); }
+  .short div b { display: block; font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
+  .short div p { margin: 0; font-size: 15px; }
+  @media (max-width: 640px) { .short { grid-template-columns: 1fr; } }
+  .cs-title { margin: 0 0 14px; font-size: 20px; letter-spacing: -0.01em; }
+  .select-me { font-size: 22px; line-height: 1.45; letter-spacing: -0.01em; margin: 0; }
+  footer { margin-top: 64px; padding-top: 20px; border-top: 1px solid var(--rule); font-size: 14px; color: var(--muted); } footer a { color: inherit; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="by">By <a href="https://miguelclavel.com/?utm_source=github&amp;utm_medium=portfolio-details">Miguel Clavel</a>, Senior Product Designer</p>
+  <h1>Three portfolio details</h1>
+  <p class="lede">Small things that make a portfolio easier to read in the 30 seconds most people give it. Each one is a few lines, and all three are live on this page.</p>
+
+  <section>
+    <p class="num">Detail 1</p>
+    <h2>A list that remembers what you opened</h2>
+    <div class="demo">
+      <ul class="projects" id="projects">
+        <li><a href="#cs-quote" data-id="quote">Conversational Insurance Flow</a><span class="badge" hidden>Viewed</span></li>
+        <li><a href="#cs-hub" data-id="hub">Insurance Landing Page</a><span class="badge" hidden>Viewed</span></li>
+        <li><a href="#cs-compare" data-id="compare">Comparison System</a><span class="badge" hidden>Viewed</span></li>
+        <li><a href="#cs-brand" data-id="brand">U.S. News Brand Guide</a><span class="badge" hidden>Viewed</span></li>
+      </ul>
+      <p class="small">Open one, then come back: it's marked. Kept for this visit only, and gone when you close the tab. <button type="button" id="forget">Clear</button></p>
+    </div>
+  </section>
+
+  <section>
+    <p class="num">Detail 2</p>
+    <h2>The short version, before any images</h2>
+    <div class="demo">
+      <p class="cs-title">Conversational Insurance Flow</p>
+      <div class="short">
+        <div><b>The problem</b><p>A car insurance quote asked people 30 questions before giving them anything, in one long form filled in by typing.</p></div>
+        <div><b>What I did</b><p>Rebuilt it as a conversation, one clear question at a time, with every answer editable and consent asked where it's needed.</p></div>
+        <div><b>What changed</b><p>23 form fields became 19 questions across 5 named stages, answered by tapping instead of typing.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <p class="num">Detail 3</p>
+    <h2>A selection colour that belongs to the brand</h2>
+    <div class="demo"><p class="select-me">Select this sentence. It won't be the blue you're used to: it's the same yellow as the pixels on my site, with near black text on top, in light and dark mode alike.</p></div>
+  </section>
+
+  <footer><a href="https://github.com/miguelclavel/portfolio-details">Code and prompts</a> · <a href="https://miguelclavel.com/?utm_source=github&amp;utm_medium=portfolio-details">miguelclavel.com</a> · MIT licensed</footer>
+</div>
+<script>
+  // Detail 1: remember opened projects for this visit (sessionStorage, not localStorage),
+  // and show a badge only next to something the visitor actually opened.
+  const KEY = 'viewed';
+  const read = () => { try { return JSON.parse(sessionStorage.getItem(KEY) || '[]'); } catch (e) { return []; } };
+  function paint() {
+    const seen = read();
+    document.querySelectorAll('#projects a').forEach(a => { a.nextElementSibling.hidden = !seen.includes(a.dataset.id); });
+  }
+  document.querySelectorAll('#projects a').forEach(a => a.addEventListener('click', () => {
+    const seen = read(); if (!seen.includes(a.dataset.id)) seen.push(a.dataset.id);
+    try { sessionStorage.setItem(KEY, JSON.stringify(seen)); } catch (e) {}
+    setTimeout(paint, 300);   // in a real portfolio this happens when you come back to the list
+  }));
+  document.getElementById('forget').onclick = () => { try { sessionStorage.removeItem(KEY); } catch (e) {} paint(); };
+  addEventListener('pageshow', paint);
+  paint();
+</script>
+</body>
+</html>
